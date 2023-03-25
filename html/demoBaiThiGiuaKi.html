@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px auto;
+        }
+
+        .wrapper {
+            height: 600px;
+            width: 600px;
+            background-color: antiquewhite;
+        }
+
+        #frm1 {
+            height: 80%;
+            width: 70%;
+        }
+
+        .labell {
+            float: left;
+            width: 45%;
+            text-align: left;
+        }
+
+        .inputt {
+            float: left;
+            width: 50%;
+            text-align: left;
+        }
+
+        .clearl {
+            clear: both;
+        }
+
+        .spLoi {
+            color: brown;
+            font-weight: bolder;
+        }
+    </style>
+    <script>
+        function kiemTraMa() {
+            var maSV = document.getElementById("txtMa").value;
+            var regMa = /^[0-9]{10}$/;
+            if (regMa.test(maSV) == true) {
+                document.getElementById("spLoiMa").innerHTML = "OK"
+            } else {
+                document.getElementById("spLoi").innerHTML = "NO"
+            }
+        }
+
+        function kiemTraTen() {
+            var hoTen = document.getElementById("txtHT").value;
+            var regMa = /(^[A-Z]{1}[a-z]+)(\s[A-Z]{1}[a-z]*)+$/;
+            if (regMa.test(hoTen) == true) {
+                document.getElementById("spLoiTen").innerHTML = "OK"
+            } else {
+                document.getElementById("spLoiTen").innerHTML = "NO"
+            }
+        }
+
+        function kiemTraLop() {
+            var lop = document.getElementById("txtLop").value;
+            var regLop = /(DHCNTT17BTT)$/;
+            if (regLop.test(lop) == true) {
+                document.getElementById("spLoiLop").innerHTML = "OK"
+            } else{
+                document.getElementById("spLoiLop").innerHTML = "NO"
+            }
+        }
+
+    </script>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <form action="" method="get" id="frm1" onsubmit="dangKý();" >
+            <fieldset>
+                <legend>ĐĂNG KÝ</legend>
+                <div class="labell">
+                    <label for="">Mã Sinh Viên:  </label><br><br>
+                    <label for="">Họ Tên:  </label><br><br>
+                    <label for="">Quê Quán:  </label><br><br>
+                    <label for="">Lớp:  </label><br><br>
+                    <label for="">Ghi Chú:  </label><br><br>
+                </div>
+                <div class="input">
+                    <input type="text" name="" id="txtMa" onblur="kiemTraMa();"><span id="spLoiMa" class="spLoi">*</span><br><br>
+                    <input type="text" name="" id="txtHT" onblur="kiemTraTen();"><span id="spLoiTen" class="spLoi">*</span><br><br>
+                    <input type="text" name="" id="txtQQ"><br><br>
+                    <input type="text" name="" id="txtLop" onblur="kiemTraLop();"><span id="spLoiLop" class="spLoi">*</span><br><br>
+                    <input type="text" name="" id="txtGC"><br><br>
+                </div>
+                <br><br>
+                <div class="clearl">
+                </div>
+                <center>
+                    <button type="submit">Đăng Ký</button>
+                    <button type="reset">Huỷ</button>
+                </center>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
